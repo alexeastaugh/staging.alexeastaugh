@@ -1,6 +1,4 @@
-alexeastaugh.com
-
-====
+# alexeastaugh.com
 
 Testing environment and still a work in progress.
 
