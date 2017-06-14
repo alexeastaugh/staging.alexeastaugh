@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 # Only run the following if this is the first time running
 if [ ! -f /var/log/firsttime ]; then
