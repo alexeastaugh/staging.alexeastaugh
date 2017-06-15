@@ -13,19 +13,20 @@ Vagrant.configure("2") do |config|
 
         config.vm.provider "virtualbox" do |vb|
             vb.memory = "1024"
-            vb.name = "webserver-staging"
+            vb.name = "web"
     end
 end
 
     # Setup database
-#    config.vm.define "db" do |db|
-#        db.vm.hostname = "db-ghost"
-#        db.vm.network "private_network", ip: "192.168.50.10"
-#        web.vm.provision "shell", path: ".provision/db_bootstrap.sh"
+    config.vm.define "db" do |db|
+        db.vm.hostname = "db-ghost"
+        db.vm.network "private_network", ip: "192.168.50.10"
+        db.vm.network :forwarded_port, guest: 3306, host: 3306
+        db.vm.provision "shell", path: ".provision/db_bootstrap.sh"
 
-#        config.vm.provider "virtualbox" do |vb|
-#            vb.memory = "1024"
-#            vb.name = "db-staging"
-#    end
-#end
+        config.vm.provider "virtualbox" do |vb|
+            vb.memory = "1024"
+            vb.name = "db"
+    end
+end
 end
