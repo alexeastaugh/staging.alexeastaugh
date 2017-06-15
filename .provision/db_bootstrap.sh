@@ -16,13 +16,6 @@ if [ ! -f /var/log/firsttime ]; then
     # Allow remote access
     mysql -u root -ppassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;"
 
-    # Drop anonymous users
-    mysql -u root -ppassword -e "DROP USER ''@'localhost';"
-    mysql -u root -ppassword -e "DROP USER ''@'$(hostname)';"
-
-    # Drop  demo database
-    mysql -u root -ppassword -e "DROP DATABASE test;"
-
     # Flush privileges
     mysql -u root -ppassword -e "FLUSH PRIVILEGES;"
 
