@@ -41,7 +41,7 @@ fi
 
 # Run via system unit file
 if [ ! -f /etc/systemd/system/ghost.service ]; then
-    sudo cp /vagrant/.provision/ghost.service /etc/systemd/system/
+    sudo cp /vagrant/.provision/services/ghost.service /etc/systemd/system/
     sudo systemctl enable ghost.service
     sudo systemctl start ghost.service
 fi

@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
         web.vm.hostname = "web-ghost"
         web.vm.network "private_network", ip: "192.168.50.20"
         web.vm.network "forwarded_port", guest: 80, host: 8080
-        web.vm.provision "shell", path: ".provision/web_bootstrap.sh"
+        web.vm.provision "shell", path: ".provision/bootstraps/web_bootstrap.sh"
 
         config.vm.provider "virtualbox" do |vb|
             vb.memory = "1024"
@@ -22,7 +22,7 @@ end
         db.vm.hostname = "db-ghost"
         db.vm.network "private_network", ip: "192.168.50.10"
         db.vm.network :forwarded_port, guest: 3306, host: 3306
-        db.vm.provision "shell", path: ".provision/db_bootstrap.sh"
+        db.vm.provision "shell", path: ".provision/bootstraps/db_bootstrap.sh"
 
         config.vm.provider "virtualbox" do |vb|
             vb.memory = "1024"
