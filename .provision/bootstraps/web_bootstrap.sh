@@ -30,21 +30,11 @@ if [ ! -f /var/log/firsttime ]; then
     wget https://github.com/TryGhost/Ghost/releases/download/0.11.9/Ghost-0.11.9.zip
     unzip Ghost-0.11.9.zip
 
-    # Update config with correct URL
-    cp config.example.js config.js
-    sed -i 's/127.0.0.1/0.0.0.0/g' config.js
-    sed -i 's/my-ghost-blog.com/staging.alexeastaugh.com/g' config.js
-
-    # I need to add this to the config.js file and replace the sqlite3 db
-    #database: {
-    #        client: 'mysql',
-    #        connection: {
-    #            host: '192.168.50.10',
-    #            user: 'ghost',
-    #            password: 'ghost',
-    #            database: 'ghost',
-    #            charset: 'utf8'
-    #        },
+    # Update config from template
+    #cp config.example.js config.js
+    #sed -i 's/127.0.0.1/0.0.0.0/g' config.js
+    #sed -i 's/my-ghost-blog.com/staging.alexeastaugh.com/g' config.js
+    ln -s /vagrant/.provision/ghost/config.js /var/www/ghost
 
     # Install Ghost
     sudo npm install --production
