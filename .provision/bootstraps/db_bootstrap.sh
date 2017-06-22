@@ -17,7 +17,7 @@ if [ ! -f /var/log/firsttime ]; then
     mysql -u root -ppassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;"
 
     # Create ghost user
-    mysql -u root -ppassword -e "CREATE USER 'ghost'@'192.168.50.20' IDENTIFIED BY 'password';"
+    mysql -u root -ppassword -e "CREATE USER `ghost`@'192.168.50.20' IDENTIFIED BY 'password';"
 
     # Grant permissions to ghost database
     mysql -u root -ppassword -e "GRANT ALL PRIVILEGES ON 'ghost'.* TO 'ghost'@'192.168.50.20';"
