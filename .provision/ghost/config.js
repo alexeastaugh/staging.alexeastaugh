@@ -18,7 +18,7 @@ config = {
                 connection: {
                     host: '192.168.50.10',
                     user: 'ghost',
-                    password: 'ghost',
+                    password: 'XXXX',
                     database: 'ghost',
                     charset: 'utf8'
                 },
