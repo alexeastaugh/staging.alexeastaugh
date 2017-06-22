@@ -15,7 +15,7 @@ if [ ! -f /var/log/firsttime ]; then
     sudo apt-get -y install nginx
     sudo systemctl enable nginx.service
     sudo systemctl start nginx.service
-    
+
     # Setup NGINX
     sudo cp /vagrant/.provision/nginx/ghost /etc/nginx/sites-available/ghost
     sudo chmod 644 /etc/nginx/sites-available/ghost
@@ -34,6 +34,17 @@ if [ ! -f /var/log/firsttime ]; then
     cp config.example.js config.js
     sed -i 's/127.0.0.1/0.0.0.0/g' config.js
     sed -i 's/my-ghost-blog.com/staging.alexeastaugh.com/g' config.js
+
+    # I need to add this to the config.js file and replace the sqlite3 db
+    #database: {
+    #        client: 'mysql',
+    #        connection: {
+    #            host: '192.168.50.10',
+    #            user: 'ghost',
+    #            password: 'ghost',
+    #            database: 'ghost',
+    #            charset: 'utf8'
+    #        },
 
     # Install Ghost
     sudo npm install --production
