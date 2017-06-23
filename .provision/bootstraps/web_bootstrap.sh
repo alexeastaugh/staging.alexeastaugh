@@ -31,9 +31,6 @@ if [ ! -f /var/log/firsttime ]; then
     unzip Ghost-0.11.9.zip
 
     # Update config from template
-    #cp config.example.js config.js
-    #sed -i 's/127.0.0.1/0.0.0.0/g' config.js
-    #sed -i 's/my-ghost-blog.com/staging.alexeastaugh.com/g' config.js
     ln -s /vagrant/.provision/ghost/config.js /var/www/ghost
 
     # Install Ghost
