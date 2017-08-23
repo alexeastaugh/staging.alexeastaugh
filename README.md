@@ -5,7 +5,7 @@ Testing environment and still a work in progress.
 Requirements
 
 - Vagrant
-- Virtulbox
+- Virtualbox
 
 How To
 
